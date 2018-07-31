@@ -14,7 +14,12 @@
 
 </head>
 <body>
+<div id="interface">
 	<div class="page-header">
+        <!-- Botão de editar e adicionar publicações so aparece se o usuario estiver logado-->
+    {% if user.is_authenticated %}
+		<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+    {% endif %}
         <h1><a href="/">Geone Dias</a></h1>
         <h2>Estudante de Sistemas de Informação</h2>
     </div>
@@ -26,5 +31,6 @@
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>
