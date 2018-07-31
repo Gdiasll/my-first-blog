@@ -7,109 +7,76 @@
 		body {
 	background-color: rgb(0,0,0);
 	color: rgba(255,255,255,1);
-}
+	}
 
-/*Interface do site*/
+	/*Interface do site*/
 
-div#interface {
-	width: 1100px;
-	background-color: rgb(0,0,30);
-	margin: -20px auto 0px auto;
-	box-shadow: 0px 0px 10px rgba(255,255,255, 0.6);
-	padding: 10px 10px 10px 10px;
-}
-p {
-	text-align: justify;
-	text-indent: 50px;
-}
-
-/*Formatação de cabeçalho*/
-
-header#cabecalho img#icone {
+		div#interface {
+			width: 1100px;
+			background-color: rgb(0,0,30);
+			margin: -20px auto 0px auto;
+			box-shadow: 0px 0px 10px rgba(255,255,255, 0.6);
+			padding: 10px 10px 10px 10px;
+		}
+		p {
+			text-align: justify;
+			text-indent: 50px;
+		}
+		nav#menu {
+		display: block;
+	}
+	nav#menu ul {
+		list-style: none;
+		text-transform: uppercase;
+		position: absolute;
+		top: -10px;
+		left: 425px;
+	}
+	nav#menu li {
+		display: inline-block;
+		background-color: #5f2129;
+		padding: 10px;
+		margin: 2px;
+		transition: background-color 1.5s;
+	}
+	nav#menu li:hover {
+		background-color: #606060;
+	}
+	nav#menu h1 {
+		display: none;
+	}
+	nav#menu a {
+		color: rgb(220,200,220);
+		text-decoration: none;
+	}
+	nav#menu a:hover {
+		color: #ffffff;
+	}
+	header#cabecalho img#icone {
 	position: absolute;
 	left: 980px;
 	top: 20px;
-}
-header#cabecalho {
-	border-bottom: 1px #606060 solid;
-	height: 150px;
-	background: url("../_imagens/logo.xcf") no-repeat 0px 80px;
-}
-header#cabecalho h1 {
-	font-family: 'FonteLogo', sans-serif;
-	font-size: 30pt;
-	color: #606060;
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.6)
-	padding: 0px;
-	margin-bottom: 0px;
-}
-header#cabecalho h2{
-	font-family: 'Titillium Web', sans-serif;
-	font-size: 15pt;
-	color: #888888;
-	padding: 0px;
-	margin-top: 0px;
-}
-
-/*Formatação do Menu*/
-
-nav#menu {
-	display: block;
-}
-nav#menu ul {
-	list-style: none;
-	text-transform: uppercase;
-	position: absolute;
-	top: -10px;
-	left: 425px;
-}
-nav#menu li {
-	display: inline-block;
-	background-color: #5f2129;
-	padding: 10px;
-	margin: 2px;
-	transition: background-color 1.5s;
-}
-nav#menu li:hover {
-	background-color: #606060;
-}
-nav#menu h1 {
-	display: none;
-}
-nav#menu a {
-	color: rgb(220,200,220);
-	text-decoration: none;
-}
-nav#menu a:hover {
-	color: #ffffff;
-}
-
-/*Formatação de imagens*/
-
-figure.foto-legenda {
-	position: relative;
-	border: 8px solid white;
-	box-shadow: 1px 1px 4px black
-}
-figure.foto-legenda img {
-	width: 100%;
-	height: 100%;
-}
-figure.foto-legenda figcaption {
-	opacity: 0;
-	position: absolute;
-	top: 0px;
-	background-color: rgba(0,0,0, 0.4);
-	color: white;
-	width: 100%;
-	height: 100%;
-	padding: 10px;
-	box-sizing: border-box;
-	transition: opacity 1s;
-}
-figure.foto-legenda:hover figcaption {
-	opacity: 1;
-}
+	}
+	header#cabecalho {
+		border-bottom: 1px #606060 solid;
+		height: 150px;
+		background: url("../_imagens/logo.xcf") no-repeat 0px 80px;
+	}
+	header#cabecalho h1 {
+		font-family: 'FonteLogo', sans-serif;
+		font-size: 30pt;
+		color: #606060;
+		text-shadow: 1px 1px 1px rgba(0,0,0,0.6)
+		padding: 0px;
+		margin-bottom: 0px;
+	}
+	header#cabecalho h2{
+		font-family: 'Titillium Web', sans-serif;
+		font-size: 15pt;
+		color: #888888;
+		padding: 0px;
+		margin-top: 0px;
+	}
 
 	</style>
 </head>
@@ -121,7 +88,6 @@ figure.foto-legenda:hover figcaption {
 			<h2>Estudante de Sistemas de Informação</h2>
 		</hgroup>
 
-<img id="icone" src="_imagens/logo.png">
 
 <nav id="menu">
 	<h1>Menu Principal</h1>
@@ -141,13 +107,19 @@ figure.foto-legenda:hover figcaption {
 		programação, como por exemplo, javascript, c++, java, e por ultimo, mas nao menos
 		importante, Python <3.
 	</p>
-<figure  class="foto-legenda">
-	<img src="_imagens/corte.png">
-	<figcaption>
-		<h3>Geone Dias</h3>
-		<p>Estudante de Sistemas de Informação</p>
-	</figcaption>
-</figure>
+
+<div>
+    <h1><a href="/">Meu Blog</a></h1>
+</div>
+
+	{% for post in posts %}
+	    <div>
+	        <p>published: {{ post.published_date }}</p>
+	        <h1><a href="">{{ post.title }}</a></h1>
+	        <p>{{ post.text|linebreaksbr }}</p>
+	    </div>
+	{% endfor %}
+
 </article>
 </section>
 </div>
