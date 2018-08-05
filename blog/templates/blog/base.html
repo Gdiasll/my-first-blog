@@ -2,39 +2,54 @@
 {% load staticfiles %}
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Geone Dias</title>
 
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <title>Geone Dias</title>
 
-	<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-</head>
-<body>
-<div id="interface">
-	<div class="page-header">
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/agency.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/agency.css' %}">
+
+  </head>
+<body id="page-top">
+
+    <!-- Header -->
+    <header class="masthead">
+      <div class="container">
+        <div class="intro-text">
+          <div class="intro-lead-in">Geone Dias</div>
+          <div class="intro-heading text-uppercase">Develloper/Estudante</div>
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Home</a>
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Contatos</a>
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">História</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Services -->
+    <div class="page-header">
         <!-- Botão de editar e adicionar publicações so aparece se o usuario estiver logado-->
     {% if user.is_authenticated %}
 		<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
     {% endif %}
-        <h1><a href="/">Geone Dias</a></h1>
-        <h2>Estudante de Sistemas de Informação</h2>
-
-        <nav id="menu">
-            <h1>Menu Principal</h1>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="historia.html">História</a></li>
-                <li><a href="contato.html">Contatos</a></li>
-            </ul>
-        </nav>
 
     </div>
-    <h1 id="titulodeblog">Postagens</h1>
-    <div class="content container">
+    <h1><br></h1>
+    <div class="container">
         <div class="row">
             <div class="col-md-8">
             {% block content %}
@@ -42,10 +57,23 @@
             </div>
         </div>
     </div>
-<footer id="rodape">
-    <p>Copyright &copy; 2018 - by Geone Dias <br>
-    <a href="http://facebook.com/gdiasll" target="_blank">Facebook</a> | <a href="http://twitter.com/geone01" target="_blank">Twitter</a></p>
-</footer>
-</div>
-</body>
-</html>
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="copyright">Copyright &copy; Geone Dias 2018</span>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+              <li class="list-inline-item">
+                <a href="http://facebook.com/gdiasll">Facebook</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="http://twitter.com/geone01">Twitter</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
